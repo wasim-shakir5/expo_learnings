@@ -1,15 +1,35 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, SafeAreaView, Button, Alert } from 'react-native';
+import { 
+  StyleSheet, 
+  SafeAreaView, 
+  Button, 
+  Alert,
+  TouchableWithoutFeedback, 
+  TouchableOpacity, 
+  TouchableHighlight,
+  TouchableNativeFeedback,
+  View,
+  Image } from 'react-native';
 import { Link } from 'expo-router';
 
 export default function Home() {
   return (
     <SafeAreaView style={styles.container}>
-      <Button 
+      <Button
         title="Click me!"
-        onPress={() => Alert.prompt("Title of my prompt", "message of this prompt", (text) => console.log(text))}
+        onPress={() => Alert.alert("Title of my prompt", "message of this prompt")}
       />
-      <Link href="/alert"> alert</Link> 
+        <Image
+          source={{
+            width: 200,
+            height: 300,
+            uri: "https://picsum.photos/200/300",
+          }}
+          />
+      <TouchableNativeFeedback onPress={() => console.log('image tapped ')}>
+          <View style={{ width: 200, height: 70, backgroundColor: "dodgerblue" }}></View>
+      </TouchableNativeFeedback>
+      <Link href="/alert"> alert</Link>
     </SafeAreaView>
   );
 }
