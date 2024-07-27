@@ -14,12 +14,18 @@ import {
   Pressable} from 'react-native';
 import { Link } from 'expo-router';
 
-export default function Home() {
+export default function home() {
   return (
     <SafeAreaView style={styles.container}>
-      <Link href="/section2" asChild>
+      <Link href="/flexbox" asChild>
         <Pressable>
-          <Text style={ styles.button }>Section 2 page</Text>
+          <Text style={ styles.button }>Flex box</Text>
+        </Pressable>
+      </Link>
+
+      <Link href="/dimension" asChild>
+        <Pressable>
+          <Text style={ styles.button }>Dimension</Text>
         </Pressable>
       </Link>
       <Button
@@ -50,7 +56,7 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: 'red',
-    paddingBottom: 20,
-    
+    paddingBottom: 5,
+    margin: 5,
   }
 });
