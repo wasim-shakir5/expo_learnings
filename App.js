@@ -3,20 +3,24 @@ import React from 'react';
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import ViewImageScreen from './app/screens/ViewImageScreen';
 import AppButton from './app/components/AppButton';
+import AppText from './app/components/AppText';
+import colors from './app/config/colors';
+import AppCard from './app/components/AppCard';
 
 export default function App() {
   return (
-
-    <WelcomeScreen />
-    // <View
-    //   style={{
-    //     flex: 1,
-    //     justifyContent: 'center',
-    //     alignItems: 'center',
-
-    //   }}
-    // >
-    //   <AppButton title="Login" onPress={() => console.log('tapped')} />
-    // </View>
+    <View
+      style={{
+        backgroundColor: '#f8f4f4',
+        padding: 20,
+        paddingTop: 100,
+      }}
+    >
+      <AppCard 
+        title="T-Shirts for sale"
+        subTitle="$250"
+        image={require("./app/assets/shirt.jpg")}
+      />
+    </View>
   )
 }
