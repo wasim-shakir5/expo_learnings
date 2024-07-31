@@ -7,6 +7,8 @@ npm install @react-navigation/native @react-navigation/stack react-native-screen
 
 @expo/vector-icons   --->   expo.github.io/vector-icons
 
+expo install react-native-gesture-handler
+
 // this is sidebar navigation
 import * as React from 'react';
 import { View, Text } from 'react-native';

@@ -7,9 +7,10 @@ import AppText from './app/components/AppText';
 import colors from './app/config/colors';
 import AppCard from './app/components/AppCard';
 import ListingDetailsScreen from './app/screens/ListingDetailsScreen';
+import MessagesScreen from './app/screens/MessagesScreen';
 
 export default function App() {
   return (
-    <ViewImageScreen />
+    <MessagesScreen />
   )
 }
