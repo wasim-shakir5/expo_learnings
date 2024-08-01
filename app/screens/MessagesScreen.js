@@ -10,7 +10,7 @@ import {
   Platform,
   StatusBar,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import ListItem from "../components/ListItem";
 import Constants from "expo-constants";
 import Screen from "../components/Screen";
@@ -18,7 +18,7 @@ import ListItemSeperator from "../components/ListItemSeperator";
 import ListItemDeleteAction from "../components/ListItemDeleteAction";
 // console.log(Constants);
 
-const messages = [
+const initMsg = [
   {
     id: 1,
     title: "T1",
@@ -34,6 +34,13 @@ const messages = [
 ];
 
 function MessagesScreen() {
+  const [messages, setMessages] = useState(initMsg);
+  const [refreshing, setRefreshing] = useState(false);
+
+  const handleDelete = (message) => {
+    setMessages(messages.filter((m) => m.id !== message.id));
+  };
+
   return (
     <Screen>
       <FlatList
@@ -45,9 +52,18 @@ function MessagesScreen() {
             subTitle={item.description}
             image={item.image}
             onPress={() => console.log("message: ", item)}
-            renderRightActions={ListItemDeleteAction}
+            renderRightActions={() => (
+              <ListItemDeleteAction onPress={() => handleDelete(item)} />
+            )}
           />
         )}
+        refreshing={refreshing}
+        onRefresh={() => {
+          setRefreshing(true);
+          setTimeout(() => {
+            setRefreshing(false);
+          }, 1000);
+        }}
         ItemSeparatorComponent={ListItemSeperator}
         // ListFooterComponent={() => <Text> {JSON.stringify(lulu, null, 2)}</Text>}
       />
